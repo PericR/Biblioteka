@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2019 at 01:21 PM
+-- Generation Time: Mar 17, 2019 at 10:02 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -32,6 +32,20 @@ CREATE TABLE `autor` (
   `id` int(11) NOT NULL,
   `ime` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `prezime` varchar(32) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bankovna_kartica`
+--
+
+CREATE TABLE `bankovna_kartica` (
+  `id_korisnika` int(11) NOT NULL,
+  `broj_kartice` int(16) NOT NULL,
+  `tip_kartice` enum('visa','mastercard','maestro','american expres') COLLATE utf8_unicode_ci NOT NULL,
+  `expire_date` date NOT NULL,
+  `ccv` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -93,6 +107,12 @@ ALTER TABLE `autor`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `bankovna_kartica`
+--
+ALTER TABLE `bankovna_kartica`
+  ADD KEY `id_korisnika` (`id_korisnika`);
+
+--
 -- Indexes for table `knjiga`
 --
 ALTER TABLE `knjiga`
@@ -141,10 +161,10 @@ ALTER TABLE `narudzba`
 --
 
 --
--- Constraints for table `autor`
+-- Constraints for table `bankovna_kartica`
 --
-ALTER TABLE `autor`
-  ADD CONSTRAINT `autor_ibfk_1` FOREIGN KEY (`id`) REFERENCES `knjiga` (`autor_id`);
+ALTER TABLE `bankovna_kartica`
+  ADD CONSTRAINT `bankovna_kartica_ibfk_1` FOREIGN KEY (`id_korisnika`) REFERENCES `korisnik` (`id`);
 
 --
 -- Constraints for table `knjiga`
