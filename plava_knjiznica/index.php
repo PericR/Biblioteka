@@ -1,7 +1,12 @@
 <?php
-    echo "Hello PHP <br>";
-    $ime = "Robi";
-    print("Moje ime je $ime");
-    print("<br>");
-    print('Moje ime je $ime');
+    session_start();
+
+    include("controller/db_config.php");
+    include("utils.php");
+
+    $view = "login";
+
+    load_view("view/static/header.php", array("title" => "Prijava na sustav"));
+    load_view("view/$view.php");
+    load_view("view/static/footer.php");
 ?>
