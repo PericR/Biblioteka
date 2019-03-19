@@ -10,7 +10,7 @@
 				<a class="nav-link" href="?view=register">Registracija na sustav</a>
             </li>
 		</ul>
-		<form method="POST" action="auth/login.php">
+		<form method="POST" action="controller/login.php">
 			<div class="form-group">
 				<label for="korisnicko_ime">Korisničko ime</label>
 				<div class="input-group">
