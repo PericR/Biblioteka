@@ -3,7 +3,7 @@
     error_reporting(E_ALL | E_STRICT);
     ini_set("display_errors", 'On');
 
-    include("db_config.php");
+    include("../config/db_config.php");
 
     $korisnicko_ime = $_POST['korisnicko_ime'];
     $lozinka = $_POST['lozinka'];

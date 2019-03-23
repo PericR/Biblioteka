@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row align-items-center">
         <div class="col-md-6 offset-md-3">
-            <form action="">
+            <form method="POST" action="controllers/register.php">
                 <div class="form-group">
                     <h4>Molimo unesite svoje podatke</h4>
                 </div>
