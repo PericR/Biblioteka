@@ -11,4 +11,5 @@
     
     load_view("views/$view.php");
     load_view("views/static/footer.php");
+    print($_SESSION['ime']);
 ?>

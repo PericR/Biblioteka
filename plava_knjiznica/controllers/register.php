@@ -7,7 +7,8 @@
     $korisnicko_ime = $_POST['korisnicko_ime'];
     $lozinka = $_POST['lozinka'];
     $ponovljena_lozinka = $_POST['ponovljena_lozinka'];
-
+    $uloga_korisnika = "korisnik";
+    
     if($lozinka != $ponovljena_lozinka){
         print("Lozinke se ne poklapaju");
     } else {
@@ -15,7 +16,7 @@
         '".$ime."', 
         '".$prezime."',
         '".$korisnicko_ime."',
-        '".$lozinka."', null)";
+        '".$lozinka."', '".$uloga_korisnika."')";
         mysqli_query ($konekcija, $sql);
         mysqli_close($konekcija);
         print("Uspjesno ste se registrirali");

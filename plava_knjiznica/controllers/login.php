@@ -12,13 +12,15 @@
     WHERE korisnicko_ime='".$korisnicko_ime."'
     AND lozinka='".$lozinka."'";
 
-    $rezultat = mysqli_query($konekcija, $sqli);
+    $rezultat = mysqli_query($konekcija, $sql);
 
-    if(mysqli_num_rows($resultat) == 0){
+    if(mysqli_num_rows($rezultat) == 0){
         print("<b>Greska<b> korisnik ne postoji u bazi.");        
     } else {
         $_SESSION['korisnicko_ime'] = $korisnicko_ime;
         $_SESSION['lozinka'] = $lozinka;
+        $user = mysqli_fetch_assoc($rezultat);
+        $_SESSION['ime'] = $user['ime'];
         header("Location:../index.php");
     }
 
