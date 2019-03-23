@@ -20,7 +20,7 @@
         $_SESSION['korisnicko_ime'] = $korisnicko_ime;
         $_SESSION['lozinka'] = $lozinka;
         $user = mysqli_fetch_assoc($rezultat);
-        $_SESSION['ime'] = $user['ime'];
+        $_SESSION['ime'] = $user['ime'] + $user['prezime'];
         header("Location:../index.php");
     }
 

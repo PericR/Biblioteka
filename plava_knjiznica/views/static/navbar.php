@@ -11,7 +11,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Informacije <i class="fas fa-info-circle"></i></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item profile-button">
                 <a class="nav-link" href="#">Profil <i class="fas fa-user-tie"></i></a>
             </li>
             <li class="nav-item">
