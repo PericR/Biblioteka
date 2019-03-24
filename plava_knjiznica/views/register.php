@@ -32,6 +32,7 @@
             </div>
             <div>
                 <button class="btn btn-primary" type="submit" name="registracija">
+                    <i class="fas fa-sign-in-alt"></i>
                     Registrirajte se
                 </button>
             </div>
