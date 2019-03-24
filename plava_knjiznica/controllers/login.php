@@ -10,7 +10,8 @@
 
     $sql = "SELECT * FROM korisnik
     WHERE korisnicko_ime='".$korisnicko_ime."'
-    AND lozinka='".$lozinka."'";
+    AND lozinka='".$lozinka."'
+    LIMIT 1";
 
     $rezultat = mysqli_query($konekcija, $sql);
 
@@ -20,7 +21,7 @@
         $_SESSION['korisnicko_ime'] = $korisnicko_ime;
         $_SESSION['lozinka'] = $lozinka;
         $user = mysqli_fetch_assoc($rezultat);
-        $_SESSION['ime'] = $user['ime'] + $user['prezime'];
+        $_SESSION['ime'] = $user['ime'];
         header("Location:../index.php");
     }
 
