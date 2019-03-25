@@ -32,7 +32,6 @@
         '".$lozinka."', '".$uloga_korisnika."')";
         mysqli_query ($konekcija, $sql);
         mysqli_close($konekcija);
-        header("Location:../index.php");
-        print("Uspjesno ste se registrirali");
+        header("Location:../index.php?view=prodaja");        
     }
 ?>

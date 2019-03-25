@@ -23,11 +23,13 @@
         header("Location:../index.php?view=login");
     } else {
         unset($_SESSION['nepostojeci_korisnik']);
+
         $_SESSION['korisnicko_ime'] = $korisnicko_ime;
         $_SESSION['lozinka'] = $lozinka;
         $user = mysqli_fetch_assoc($rezultat);
+        $_SESSION['uloga_korisnika'] = $user['uloga_korisnika'];
         $_SESSION['ime'] = $user['ime'];
-        header("Location:../index.php");
+        header("Location:../index.php?view=prodaja");
     }
 
     mysqli_close($konekcija);
