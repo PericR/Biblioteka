@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     include("../config/db_config.php");
     
     $ime = $_POST['ime'];
@@ -15,10 +15,16 @@
     $provjeri_korisnicko_ime_rezultat = mysqli_query($konekcija, $provjeri_korisnicko_ime);
 
     if($lozinka != $ponovljena_lozinka){
-        print("Lozinke se ne poklapaju.");
+        $_SESSION['nepoklapajuce_lozinke']='<small class="text-danger">lozinke se ne poklapaju!</small>';
+        unset($_SESSION['zauzeto_korisnicko_ime']);
+        header("Location:../index.php?view=register");
     } else if(mysqli_num_rows($provjeri_korisnicko_ime_rezultat) != 0){                
-        print("Zauzeto korisnicko ime.");
+        $_SESSION['zauzeto_korisnicko_ime'] = '<small class="text-danger">Korisničko ime je zauzeto!</small>';
+        unset($_SESSION['nepoklapajuce_lozinke']);
+        header("Location:../index.php?view=register");
     }else {
+        unset($_SESSION['nepoklapajuce_lozinke']);
+        unset($_SESSION['zauzeto_korisnicko_ime']);
         $sql = "INSERT INTO korisnik VALUES(null, 
         '".$ime."', 
         '".$prezime."',
