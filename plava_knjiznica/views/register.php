@@ -24,6 +24,7 @@
                 <?php
                 if(isset($_SESSION['zauzeto_korisnicko_ime'])){
                     print($_SESSION['zauzeto_korisnicko_ime']);
+                    unset($_SESSION['zauzeto_korisnicko_ime']);
                 }
                 ?>
             </div>
@@ -38,6 +39,7 @@
                 <?php
                 if(isset($_SESSION['nepoklapajuce_lozinke'])){
                     print($_SESSION['nepoklapajuce_lozinke']);
+                    unset($_SESSION['nepoklapajuce_lozinke']);
                 }
                 ?>
             </div>

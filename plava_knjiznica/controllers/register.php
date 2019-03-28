@@ -16,15 +16,11 @@
 
     if($lozinka != $ponovljena_lozinka){
         $_SESSION['nepoklapajuce_lozinke']='<small class="text-danger">lozinke se ne poklapaju!</small>';
-        unset($_SESSION['zauzeto_korisnicko_ime']);
         header("Location:../index.php?view=register");
     } else if(mysqli_num_rows($provjeri_korisnicko_ime_rezultat) != 0){                
         $_SESSION['zauzeto_korisnicko_ime'] = '<small class="text-danger">Korisničko ime je zauzeto!</small>';
-        unset($_SESSION['nepoklapajuce_lozinke']);
         header("Location:../index.php?view=register");
     }else {
-        unset($_SESSION['nepoklapajuce_lozinke']);
-        unset($_SESSION['zauzeto_korisnicko_ime']);
         $sql = "INSERT INTO korisnik VALUES(null, 
         '".$ime."', 
         '".$prezime."',

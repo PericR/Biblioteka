@@ -5,9 +5,6 @@
 
     include("../config/db_config.php");
 
-    unset($_SESSION['nepoklapajuce_lozinke']);
-    unset($_SESSION['zauzeto_korisnicko_ime']);
-
     $korisnicko_ime = $_POST['korisnicko_ime'];
     $lozinka = $_POST['lozinka'];
 
@@ -21,8 +18,7 @@
     if(mysqli_num_rows($rezultat) == 0){
         $_SESSION['nepostojeci_korisnik']='<small class="text-danger">Pogrešno korisničko ime ili lozinka!!</small>';
         header("Location:../index.php?view=login");
-    } else {
-        unset($_SESSION['nepostojeci_korisnik']);
+    } else {        
 
         $_SESSION['korisnicko_ime'] = $korisnicko_ime;
         $_SESSION['lozinka'] = $lozinka;

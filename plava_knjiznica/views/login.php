@@ -21,7 +21,8 @@
 				</div>
 				<?php
             		if(isset($_SESSION['nepostojeci_korisnik'])){
-                		print($_SESSION['nepostojeci_korisnik']);
+						print($_SESSION['nepostojeci_korisnik']);
+						unset($_SESSION['nepostojeci_korisnik']);
             		}
                 ?>
 			</div>
