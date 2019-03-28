@@ -20,7 +20,7 @@ function print_profile_dropdown($ime, $prezime){
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="?view=dodaj_karticu">Dodaj karticu</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Odjava</a>
+        <a class="dropdown-item" href="index.php?odjava=odjava">Odjava</a>
     </div>
 </li>';
 }

@@ -10,6 +10,11 @@
         $view = $_GET['view'];
     }
 
+    if(isset($_GET['odjava'])){
+        session_destroy();
+        header('Location: index.php');
+    }
+
     if(!isset($_SESSION['uloga_korisnika'])){
         $_SESSION['uloga_korisnika'] = "gost";
     }
