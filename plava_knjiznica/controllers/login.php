@@ -26,7 +26,7 @@
         $_SESSION['uloga_korisnika'] = $user['uloga_korisnika'];
         $_SESSION['ime'] = $user['ime'];
         $_SESSION['prezime'] = $user['prezime'];
-        
+        $_SESSION['id'] = $user['id'];
         header("Location:../index.php?view=prodaja");
     }
 
