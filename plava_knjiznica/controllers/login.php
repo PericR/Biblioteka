@@ -19,12 +19,13 @@
         $_SESSION['nepostojeci_korisnik']='<small class="text-danger">Pogrešno korisničko ime ili lozinka!!</small>';
         header("Location:../index.php?view=login");
     } else {        
-
-        $_SESSION['korisnicko_ime'] = $korisnicko_ime;
-        $_SESSION['lozinka'] = $lozinka;
         $user = mysqli_fetch_assoc($rezultat);
+
+        $_SESSION['korisnicko_ime'] = $user['korisnicko_ime']        
         $_SESSION['uloga_korisnika'] = $user['uloga_korisnika'];
         $_SESSION['ime'] = $user['ime'];
+        $_SESSION['prezime'] = $user['prezime'];
+        
         header("Location:../index.php?view=prodaja");
     }
 
