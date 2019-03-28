@@ -14,10 +14,13 @@
     LIMIT 1";
     $provjeri_korisnicko_ime_rezultat = mysqli_query($konekcija, $provjeri_korisnicko_ime);
 
+    
     if($lozinka != $ponovljena_lozinka){
+        //koristi se za upozorenje na nepodudarajuce lozinke u view/register
         $_SESSION['nepoklapajuce_lozinke']='<small class="text-danger">lozinke se ne poklapaju!</small>';
         header("Location:../index.php?view=register");
     } else if(mysqli_num_rows($provjeri_korisnicko_ime_rezultat) != 0){                
+        //koristi se za upozorenje na pogresno korisnicko ime u view/register
         $_SESSION['zauzeto_korisnicko_ime'] = '<small class="text-danger">Korisničko ime je zauzeto!</small>';
         header("Location:../index.php?view=register");
     }else {

@@ -16,12 +16,13 @@
     $rezultat = mysqli_query($konekcija, $sql);
 
     if(mysqli_num_rows($rezultat) == 0){
+        //koristi se za upozorenje na nepostojeceg korisnika u view/login
         $_SESSION['nepostojeci_korisnik']='<small class="text-danger">Pogrešno korisničko ime ili lozinka!!</small>';
         header("Location:../index.php?view=login");
-    } else {        
+    } else {                
         $user = mysqli_fetch_assoc($rezultat);
-
-        $_SESSION['korisnicko_ime'] = $user['korisnicko_ime']        
+        
+        $_SESSION['korisnicko_ime'] = $user['korisnicko_ime'];        
         $_SESSION['uloga_korisnika'] = $user['uloga_korisnika'];
         $_SESSION['ime'] = $user['ime'];
         $_SESSION['prezime'] = $user['prezime'];
